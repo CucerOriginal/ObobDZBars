@@ -24,19 +24,17 @@ namespace ObobDZBars
             new Entity(3, 1, "Child of 1 entity"), new Entity(4, 2, "Child of 2 entity"), new Entity(5, 4, "Child of 4 entity")};
             return entitiesList;
         }
-        static public Dictionary<int, List<Entity>> ValuePairs(List<Entity> listEntity)//говно код
+        static public Dictionary<int, List<Entity>> ValuePairs(List<Entity> listEntity)
         {
-            List<Entity> entities1 = new List<Entity>();
             Dictionary<int, List<Entity>> valuePairs = new Dictionary<int, List<Entity>>();
-            for (int i = 0; i< listEntity.Count; i++)
+            for (int i = 0; i < listEntity.Count; i++)
             {
-                entities1.Add(listEntity[i]);
-                if (i != listEntity.Count - 1 && listEntity[i].ParentId == listEntity[i + 1].ParentId)
+                IEnumerable<Entity> entities = listEntity.Where(n => n.ParentId.Equals(i));
+                while (entities.ToList().Count == 0)
                 {
-                    continue;
+                    i++;
                 }
-                valuePairs.Add(listEntity[i].ParentId, entities1);
-                entities1 = new List<Entity>();
+                valuePairs.Add(entities.ToList()[0].ParentId, entities.ToList());
             }
             return valuePairs;
         }
