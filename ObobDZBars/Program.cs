@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace ObobDZBars
     {
         static void Main(string[] args)
         {
+            //Обобщение
             LocalFileLogger<int> localFileLoggerInt = new LocalFileLogger<int>(@"D:\Test.txt");
             localFileLoggerInt.LogInfo("Info");
             localFileLoggerInt.LogWarning("WARNING");
@@ -24,6 +26,10 @@ namespace ObobDZBars
             localFileLoggerFloat.LogError("EROR", new Exception());
 
             Console.WriteLine("Все понял, все записал");
+
+            //Коллекция 
+            List<Entity> ts = Entity.ListRet();
+            Dictionary<int, List<Entity>> valuePairs = Entity.ValuePairs(ts);
         }
     }
 
@@ -58,5 +64,4 @@ namespace ObobDZBars
             File.AppendAllText(path, $"[Info]: [{typeof(T).Name}] : {message}" + Environment.NewLine );
         }
     }
-
 }
