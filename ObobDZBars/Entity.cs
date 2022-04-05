@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ObobDZBars
 {
@@ -25,19 +22,7 @@ namespace ObobDZBars
         }
         static public Dictionary<int, List<Entity>> ValuePairs(List<Entity> listEntity)
         {
-            Dictionary<int, List<Entity>> valuePairs = new Dictionary<int, List<Entity>>();
-            for (int i = 0; i < listEntity.Count; i++)
-            {
-                List<Entity> entities = listEntity.Where(n => n.ParentId.Equals(i)).ToList();
-                while (entities.Count == 0)
-                {
-                    i++;
-                    entities = listEntity.Where(n => n.ParentId.Equals(i)).ToList();
-                    continue;
-                }
-                valuePairs.Add(entities[0].ParentId, entities);
-            }
-            return valuePairs;
+            return listEntity.GroupBy(o => o.ParentId).ToDictionary(p => p.Key, p => p.ToList());
         }
     }
 }

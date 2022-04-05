@@ -10,26 +10,32 @@ namespace ObobDZBars
         static void Main(string[] args)
         {
             //Обобщение
-            LocalFileLogger<int> localFileLoggerInt = new LocalFileLogger<int>(@"D:\Test.txt");
-            localFileLoggerInt.LogInfo("Info");
-            localFileLoggerInt.LogWarning("WARNING");
-            localFileLoggerInt.LogError("EROR", new Exception());
+            //LocalFileLogger<int> localFileLoggerInt = new LocalFileLogger<int>(@"D:\Test.txt");
+            //localFileLoggerInt.LogInfo("Info");
+            //localFileLoggerInt.LogWarning("WARNING");
+            //localFileLoggerInt.LogError("EROR", new Exception());
 
-            LocalFileLogger<string> localFileLoggerString = new LocalFileLogger<string>(@"D:\Test.txt");
-            localFileLoggerString.LogInfo("Info");
-            localFileLoggerString.LogWarning("WARNING");
-            localFileLoggerString.LogError("EROR", new Exception());
+            //LocalFileLogger<string> localFileLoggerString = new LocalFileLogger<string>(@"D:\Test.txt");
+            //localFileLoggerString.LogInfo("Info");
+            //localFileLoggerString.LogWarning("WARNING");
+            //localFileLoggerString.LogError("EROR", new Exception());
 
-            LocalFileLogger<float> localFileLoggerFloat = new LocalFileLogger<float>(@"D:\Test.txt");
-            localFileLoggerFloat.LogInfo("Info");
-            localFileLoggerFloat.LogWarning("WARNING");
-            localFileLoggerFloat.LogError("EROR", new Exception());
+            //LocalFileLogger<float> localFileLoggerFloat = new LocalFileLogger<float>(@"D:\Test.txt");
+            //localFileLoggerFloat.LogInfo("Info");
+            //localFileLoggerFloat.LogWarning("WARNING");
+            //localFileLoggerFloat.LogError("EROR", new Exception());
 
-            Console.WriteLine("Все понял, все записал");
+            //Console.WriteLine("Все понял, все записал");
 
             //Коллекция 
             List<Entity> ts = Entity.ListRet();
             Dictionary<int, List<Entity>> valuePairs = Entity.ValuePairs(ts);
+
+
+
+
+
+
         }
     }
 
